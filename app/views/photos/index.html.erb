@@ -5,6 +5,7 @@
     <tr>
       <th>Image</th>
       <th>User</th>
+      <th>Like</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= image_tag photo.image.url(:medium) %></td>
         <td><%= photo.user %></td>
+        <td><%= photo.like %></td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
         <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

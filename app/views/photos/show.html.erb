@@ -10,5 +10,10 @@
   <%= @photo.user %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @photo.like %>
+</p>
+
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>
