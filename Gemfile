@@ -46,3 +46,4 @@ end
 
 gem 'paperclip'
 gem 'therubyracer'
+gem 'devise'
