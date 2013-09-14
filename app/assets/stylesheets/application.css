@@ -12,6 +12,21 @@
  *= require_tree .
  */
 
+.glass-header {
+  background-color: #eee;
+  width: 1000px;
+  height: 50px;
+  position:absolute;
+  top: 0px;
+}
+
+
+.glass-header li {
+  list-style-type: none;
+  float: left;
+  margin-left: 10px;
+}
+
 .container{
    width:1000px;
    height:600px;
@@ -21,13 +36,16 @@
 }
 
 .glass{
-	height:100%;
-	background-color: #111;
-	opacity:0.9;
-	-webkit-filter: blur(5px);
+  margin-top: 50px;
+  height: 500px;
+  background-color: #111;
+  opacity:0.9;
+  -webkit-filter: blur(2px);
 }
 
 img{
 	width:1000px;
 	height:100%;
 }
+
+
