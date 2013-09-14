@@ -12,8 +12,25 @@
  *= require_tree .
  */
 
+/*body{
+   width: 100%;
+   height: 100%;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   margin-left:0px;
+   margin-right:0px;
+   font-family: "sans-serif";
+   background-color: #222222;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: right bottom;
+   overflow: auto;
+   text-decoration:none;
+}*/
+
 .glass-header {
-  background-color: #eee;
+  background-color: RGB(28,41,52);
   width: 1000px;
   height: 50px;
   position:absolute;
@@ -43,9 +60,18 @@
   -webkit-filter: blur(2px);
 }
 
-img{
+.top-image{
 	width:1000px;
 	height:100%;
 }
 
+.header-icon{
+  width:20px;
+  height:20px;
+}
 
+.header-menu{
+  font-size: 20px;
+  color:#fff;
+  padding:3px;
+}
