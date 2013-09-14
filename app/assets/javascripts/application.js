@@ -29,3 +29,11 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function headerMouseOn(){
+	$(".header-button").css("background-color","#555");
+}
+
+function headerMouseOut(){
+	$(".header-button").css("background-color","#111");
+}

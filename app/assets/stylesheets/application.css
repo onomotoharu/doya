@@ -42,7 +42,7 @@ body{
 .glass-header li {
   list-style-type: none;
   float: left;
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 .container{
@@ -52,6 +52,31 @@ body{
    margin-right: auto;
    margin-left: auto;
    /*background-color: #00ff00*/
+}
+
+.header-button{
+  /*width:80px;*/
+  height:50px;
+  background-color: #222;
+  position:absolute;
+  top:0px;
+  left:15px;
+}
+
+.header-button-container{
+  position:relative;
+  top:10px;
+}
+
+.header-icon{
+  width:20px;
+  height:20px;
+}
+
+.header-menu{
+  font-size: 25px;
+  color:#fff;
+  padding:3px;
 }
 
 .top-image{
@@ -92,17 +117,6 @@ body{
   z-index: 10000000;
   background-color: #C23424;
   margin: 10px 20px 20px 10px;
-}
-
-.header-icon{
-  width:20px;
-  height:20px;
-}
-
-.header-menu{
-  font-size: 20px;
-  color:#fff;
-  padding:3px;
 }
 
 .main-body{
