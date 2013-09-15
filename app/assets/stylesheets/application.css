@@ -47,11 +47,10 @@ body{
   background-color: #111;
   height:50px;
   width:1200px;
-/*  position:absolute;
+  position:absolute;
   top:0px;
-  padding:0px;*/
-  margin-right: auto;
-  margin-left: auto;
+  margin-left: 50%;
+  left:-600px;
 }
 
 .main-body{
