@@ -13,7 +13,20 @@
 <p>
   <strong>Like:</strong>
   <%= @photo.like %>
+  <button type="button" id="like"/>いいね！</button>
 </p>
+
+
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>
+
+
+<script>
+  
+$("button#like").click(function(){
+  // $.post(http://localhost:3000/photos/3/like)
+  alert(1);
+})
+
+</script>

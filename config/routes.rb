@@ -2,7 +2,9 @@ Doya::Application.routes.draw do
   resources :tags
 
   get '/' => 'photos#index'
-  
+
+  get 'photos/:id/like' => 'photos#like'
+
   resources :photos
 
   # devise_for :users

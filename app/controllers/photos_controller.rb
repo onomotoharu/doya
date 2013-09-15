@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :authenticate_user!, :except=>[:index]
+  before_filter :authenticate_user!, :except=>[:index,:like]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
@@ -21,11 +21,12 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
   end
-
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params.merge({'user_id'=>current_user.id}))
+    data = photo_params.merge({'user_id'=>current_user.id})
+    data['like'] = 0
+    @photo = Photo.new(data)
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
@@ -63,6 +64,15 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def like
+    photo = Photo.find_by_id(params[:id])  
+    photo.like = photo.like+1 if user_signed_in?
+    photo.save!
+    render :json => photo
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
