@@ -1,0 +1,161 @@
+<script type="text/javascript">
+
+var i = 0;
+$(function() {
+  $('.modal-bg-window').click(function() {
+    console.log("in");
+    $(".modal-bg-window").remove();
+  });
+
+});
+
+// ブランド追加
+function add_brand(input_text) {
+  $input = $("<input type=\"checkbox\" value=\""+input_text+"\" class=\"exist-list\">"+input_text+"</input>")
+  $("#brands-list").append($input)
+}
+
+
+function remove_li() {
+  // 削除
+  var id = i - 1;
+  if(id != -1) {
+    $("#brand-" + id).remove();
+    i--;
+  }
+
+  // 「ブランドの削除」の削除
+  $("#remove-brand-" + i).remove();
+}
+
+
+function open_mordal() {
+  $(".modal-bg").append("<div class=\"modal-bg-window\" onclick=\"remove_function()\"></div>"); 
+  $(".modal-bg").append("\
+    <div class=\"modal-window\">\
+      <textarea id=\"text-1\" name=\"test\" placeholder=\"ステッカー名\" ></textarea>\
+      <input type=\"button\" class=\"modal-button\" onclick=\"push_mordal_button()\" value=\"確定\"></input>\
+    </div>");
+  $(".modal-window").fadeTo("slow",1);
+}
+
+// mordalの削除
+function remove_function(){
+  $(".modal-window").fadeOut("slow", function() {
+    $(".modal-bg").empty();
+  });
+}
+
+// mordal上でのボタンの処理
+function push_mordal_button() {
+    var stecker_name = $("#text-1").val();
+    
+    if(stecker_name === "") {
+      //error
+    } 
+
+    remove_function();
+    add_brand(stecker_name);
+}
+
+function out_description() {
+  var description = $(".description").val();
+  console.log(description);
+  $("description-out").text = description;
+}
+
+  </script>
+
+<div class="container">
+  <div class="computer-img">
+    <%= image_tag @photo.image.url(:detail) %> 
+  </div>
+
+  <div class="brands-part">
+
+
+    <form action="" method="post">
+
+  <ul id="brands-list">
+  <% tags = Tag.all%>
+  <% tags.each{|tag| %>
+      <li><input type="checkbox" class="exist-list" value="<%= tag.name %>"> <%= tag.name %></input></li>
+  <% } %>
+  </ul>
+    </form>
+
+    <ul class="brands">
+    </ul> 
+  </div>
+
+  <div class="add-brand">
+    <img src="./imgs/plus.png" onclick="open_mordal()" />
+  </div>
+
+
+  <div class="modal-bg">
+  </div>
+
+
+</div>
+
+
+
+
+<!-- =========================================================================================== -->
+<!-- =========================================================================================== -->
+<!-- =========================================================================================== -->
+
+<!-- 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @photo.image.url%>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @photo.user.username %>
+</p>
+
+<p>
+  <strong>Like:</strong>
+  <p id="likenum" style=><%= @photo.like %></p>
+  <input type="button" class="like" name="photos,<%= @photo.id %>" value="いいね!"/></input>
+</p>
+
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
+
+ -->
+<script>
+  $("input.like").click(function(){
+  target = $(this).attr("name").split(",");
+  uri = "/"+ target[0] + "/" +  target[1] + "/like";
+  $.post(uri, function(json){
+    $("p#likenum").html(String(json.like))
+  });
+})
+
+// 
+//leap
+// var fingers_before = 0;
+// Leap.loop(function(obj) {
+//   var fingers = obj.hands.length;
+//   if(fingers_before!=fingers&&fingers>0){
+//     var id = $(this).attr("name");　
+//     $.post("/photos/<%= @photo.id %>/like", function(photo){
+//     $("p#likenum").html(String(photo.like))
+//     });
+//   }  
+//   fingers_before = fingers;
+// });
+
+
+</script>
+
+
+

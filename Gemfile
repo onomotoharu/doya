@@ -43,4 +43,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'paperclip'
 gem 'therubyracer'
+gem 'devise'
+

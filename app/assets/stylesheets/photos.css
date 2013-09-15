@@ -1,0 +1,118 @@
+.container {
+  width: 1200px;
+  height: 400px;
+}
+
+.modal-bg {
+  /* background-color: #000; */
+  /* position: absolute; */
+  /* top: 0px; */
+  /* left: 0px; */
+  width: 100%;
+  /*height: 100%;*/
+  /* visibility: hidden; */
+}
+
+.modal-bg-window {
+  background-color: #111;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.modal-window {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 500px;
+  height:300px;
+  margin-left: 50%;
+  position: absolute;
+  top: 100px;
+  left: -250px;
+  z-index: 1000000;
+  opacity:0;
+}
+
+.brands ul{
+  border: solid 1px #000;
+}
+
+.brands li{
+  padding: 15px;
+  list-style-type: none;
+  border: solid 1px #000;
+}
+
+.brands li a{
+  font-size: 20px;
+}
+
+.remove-brand {
+  float:right;
+}
+
+.brands-part {
+  border: solid 1px #000;
+  height: 500px;
+  overflow-y: auto;
+}
+
+.brands-part ul {
+  margin: 0;
+  padding: 0;
+}
+
+.computer-img {
+  width: 700px;
+  float: left;
+}
+
+.header-icon{
+  width:20px;
+  height:20px;
+  float: right;
+}
+
+.add-brand {
+  float: right;
+  margin-top:  20px;
+  margin-right: 20px;
+
+}
+
+.exist-list {
+  padding: 15px;
+}
+
+#text-1, #text-2 {
+  width: 400px;
+  margin-left: 50%;
+  position: absolute;
+  left: -200px;
+  resize: none;
+}
+
+#text-1 {
+  position: absolute;
+  top: 50px;
+}
+
+#text-2 {
+  height: 100px;
+  position: absolute;
+  top: 100px;
+}
+
+.modal-button {
+  width: 200px;
+  height: 100px;
+  margin-left: 50%;
+  position: absolute;
+  left: -100px;
+  top: 220px;
+}
+
+

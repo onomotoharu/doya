@@ -1,0 +1,33 @@
+<h1>Listing photos</h1>
+
+<table border=1>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>User</th>
+      <th>Tags</th>
+      <th>Like</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr>
+        <td><%= image_tag photo.image.url(:medium) %></td>
+        <td><%= photo.user.username %></td>
+        <td><%= raw photo.tags.map { |t| link_to t.name, tag_path(t.id) }.join(', ') %></td>
+        <td><%= photo.like %></td>
+        <td><%= link_to 'Show', photo %></td>
+        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Photo', new_photo_path %>
