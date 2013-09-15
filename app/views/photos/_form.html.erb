@@ -11,18 +11,18 @@
     </div>
   <% end %>
 
+  <ul>
+  <% tags = Tag.all%>
+  <% tags.each{|tag| %>
+      <li><input type="checkbox" name="[]" class="exist-list" value="<%= tag.name %>"　name="tags[]"> <%= tag.name %></input></li>
+  <% } %>
+  </ul>
+
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
-<!--   <div class="field">
-    <%= f.label :user %><br>
-    <%= f.text_field :user %>
-  </div>
-  <div class="field">
-    <%= f.label :like %><br>
-    <%= f.text_field :like %>
-  </div> -->
+
   <div class="actions">
     <%= f.submit %>
   </div>

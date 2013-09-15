@@ -27,6 +27,7 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
+    puts photo_params['tags']
     data = photo_params.merge({'user_id'=>current_user.id})
     data['like'] = 0
     @photo = Photo.new(data)
@@ -85,6 +86,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:image, :user_id, :like)
+      params.require(:photo).permit(:image, :user_id, :like, :tags)
     end
 end
