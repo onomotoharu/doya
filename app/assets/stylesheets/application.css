@@ -12,9 +12,74 @@
  *= require_tree .
  */
 
+body{
+   width: 100%;
+   height: 100%;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   margin-left:0px;
+   margin-right:0px;
+   font-family: "sans-serif";
+/*   background-color: #222222;*/
+   background-color: #dddddd;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: right bottom;
+   overflow: auto;
+   text-decoration:none;
+}
+
 .container {
+  margin-top: 0px;
   width: 1200px;
-  height: 400px;
+  height: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.top-image{
+  width:1200px;
+  height:600px;
+}
+
+.header-button{
+  background-color: #111;
+  height:50px;
+  width:1200px;
+/*  position:absolute;
+  top:0px;
+  padding:0px;*/
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.main-body{
+  position:absolute;
+  top:50px;
+}
+
+#user_nav{
+  /*background-color: #00ffff;*/
+  width:350px;
+  height:250px;
+  position:absolute;
+  top:200px;
+  right:50px;
+  background-color: #ddd;
+  visibility:hidden;
+}
+
+.signSession{
+  position:absolute;
+  top:100px;
+  width:200px;
+  height:450px;
+  /*background-color: #110011;*/
+  right:150px;
+  padding-left:60px;
+  background-color: #ddd;
+  opacity:0.85;
 }
 
 .modal-bg {
