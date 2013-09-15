@@ -11,6 +11,16 @@
   <input type="button" class="like" name="tags,<%= @tag.id %>" value="いいね!"/></input>
 </p>
 
+<tbody>
+  <% photo_ids = Tagging.find_all_by_tag_id(@tag.id).map{ |p| p.photo_id } %>
+  <% photo_ids.each do |id| %>
+    <% photo = Photo.find(id) %> 
+    <tr>
+      <td><%= image_tag photo.image.url(:medium) %></td>
+    </tr>
+  <% end %>
+</tbody>
+
 <%= link_to 'Edit', edit_tag_path(@tag) %> |
 <%= link_to 'Back', tags_path %>
 
