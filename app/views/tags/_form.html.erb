@@ -11,9 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!-- signup -->
+  <div class="field" >
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name  ,:id=>"name-field-id" , :placeholder=>"username" %>
+  </div>
+  <div class="field">
+    <%= f.label :password_digest %><br>
+    <%= f.text_field :password_digest ,:placeholder=>"password" ,:id=>"signup-password" ,:type=>"password"%>
   </div>
   <div class="field">
     <%= f.label :like %><br>

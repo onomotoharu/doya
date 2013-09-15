@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$("#new_user").validate({
+		rules:{
+			"user[password_digest]":{
+				require:true,
+				minlength:8
+			},
+			"user[password_digest]":{
+				required: true,
+	            equalTo: "#signup-password"
+			}
+		}
+	});
+});
