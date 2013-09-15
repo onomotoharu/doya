@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20130915065555) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "like"
+    t.integer  "like",               default: 0
   end
 
   add_index "photos", ["user_id"], name: "index_photos_on_user_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20130915065555) do
 
   create_table "tags", force: true do |t|
     t.string   "name"
-    t.integer  "like"
+    t.integer  "like",       default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

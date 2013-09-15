@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    @tags = Tag.order("like DESC")
   end
 
   # GET /tags/1
@@ -59,6 +59,13 @@ class TagsController < ApplicationController
       format.html { redirect_to tags_url }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    tag = Tag.find_by_id(params[:id])  
+    tag.like = tag.like+1 if user_signed_in?
+    tag.save!
+    render :json => tag
   end
 
   private

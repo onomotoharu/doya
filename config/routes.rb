@@ -3,7 +3,8 @@ Doya::Application.routes.draw do
 
   get '/' => 'photos#index'
 
-  get 'photos/:id/like' => 'photos#like'
+  post 'photos/:id/like' => 'photos#like'
+  post 'tags/:id/like' => 'tags#like'
 
   resources :photos
 
