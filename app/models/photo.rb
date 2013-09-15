@@ -6,11 +6,13 @@ class Photo < ActiveRecord::Base
     :styles => {
       :thumb => ["50x50#", :png],
       :medium => ["100x100#", :png],
-      :large => ["300x300>", :png]
+      :large => ["300x300>", :png],
+      :detail => ["700x500>", :png]
     },
     :convert_options => {
       :thumb => "-gravity Center -crop 50x50+0+0",
       :thumb => "-gravity Center -crop 100x100+0+0",
+      :show => "-gravity Center -crop 700x500+0+0",
     }
   }
 

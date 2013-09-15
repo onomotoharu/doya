@@ -6,6 +6,9 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.order("like DESC")
+    @tags = Tag.order("like DESC")
+    puts :hello
+    puts @tags.class
   end
 
   # GET /photos/1

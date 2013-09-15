@@ -13,3 +13,7 @@
     password: "12345678"
   )
 }
+
+%w(qiita pixiv facebook twitter mobage denagree ca ぎぶりー).each{ |name|
+  Tag.create(name: name)
+}
