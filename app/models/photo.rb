@@ -17,7 +17,7 @@ class Photo < ActiveRecord::Base
   }
 
   def self.tagged_with(name)
-    Tag.find_by_name!(name).articles
+    Tag.find_by_name!(name).photos
   end
 
   def self.tag_counts
@@ -30,8 +30,10 @@ class Photo < ActiveRecord::Base
   end
   
   def tag_list=(names)
-    self.tags = names.split(",").map do |n|
-      Tag.where(name: n.strip).first_or_create!
+    if names != nil
+      self.tags = names.split(",").map do |n|
+        Tag.where(name: n.strip).first_or_create!
+      end
     end
   end
 
