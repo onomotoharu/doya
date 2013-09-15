@@ -27,9 +27,9 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    puts photo_params['tags']
+    Ranking.ranked(current_user.id)
+    Ranking.update(current_user.id)
     data = photo_params.merge({'user_id'=>current_user.id})
-    data['like'] = 0
     @photo = Photo.new(data)
     @photo.tag_list = @photo.tagstext
     respond_to do |format|
