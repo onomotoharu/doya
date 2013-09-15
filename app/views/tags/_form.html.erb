@@ -1,0 +1,30 @@
+<%= form_for(@tag) do |f| %>
+  <% if @tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+
+      <ul>
+      <% @tag.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- signup -->
+  <div class="field" >
+    <%= f.label :name %><br>
+    <%= f.text_field :name  ,:id=>"name-field-id" , :placeholder=>"username" %>
+  </div>
+  <div class="field">
+    <%= f.label :password_digest %><br>
+    <%= f.text_field :password_digest ,:placeholder=>"password" ,:id=>"signup-password" ,:type=>"password"%>
+  </div>
+  <div class="field">
+    <%= f.label :like %><br>
+    <%= f.number_field :like %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
