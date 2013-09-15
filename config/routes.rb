@@ -1,7 +1,13 @@
 Doya::Application.routes.draw do
-  devise_for :users
+  get '/' => 'photos#index'
+  
   resources :photos
 
+  # devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'custom_devise/registrations'
+  }
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
