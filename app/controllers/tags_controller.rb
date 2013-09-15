@@ -29,6 +29,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
+        @tag.tag_list = @tag.tagstext
         format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tag }
       else
