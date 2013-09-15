@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tag.name %>
+</p>
+
+<p>
+  <strong>Like:</strong>
+  <p id="likenum"><%= @tag.like %></p>
+  <input type="button" class="like" name="tags,<%= @tag.id %>" value="いいね!"/></input>
+</p>
+
+<%= link_to 'Edit', edit_tag_path(@tag) %> |
+<%= link_to 'Back', tags_path %>
+
+<script>
+$("input.like").click(function(){
+  target = $(this).attr("name").split(",");
+  uri = "/"+ target[0] + "/" +  target[1] + "/like";
+  $.post(uri, function(json){
+    $("p#likenum").html(String(json.like))
+  });
+})
+</script>
