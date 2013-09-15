@@ -1,4 +1,6 @@
 Doya::Application.routes.draw do
+  resources :tags
+
   get '/' => 'photos#index'
   
   resources :photos
