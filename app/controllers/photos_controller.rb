@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_filter :authenticate_user!, :except=>[:index]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
@@ -24,8 +25,7 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params)
-
+    @photo = Photo.new(photo_params.merge({'user_id'=>current_user.id}))
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
@@ -54,7 +54,10 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
-    @photo.destroy
+    if @photo.user_id == current_user.id then 
+      @photo.destroy
+    end
+    
     respond_to do |format|
       format.html { redirect_to photos_url }
       format.json { head :no_content }
