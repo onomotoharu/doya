@@ -7,24 +7,19 @@ class RankingsController < ApplicationController
     @rankings = Ranking.all
   end
 
-  # GET /rankings/1
-  # GET /rankings/1.json
-  def show
-  end
-
   # GET /rankings/new
   def new
     @ranking = Ranking.new
   end
 
-  # GET /rankings/1/edit
-  def edit
-  end
-
   # POST /rankings
   # POST /rankings.json
-  def create
-    @ranking = Ranking.new(ranking_params)
+  def create user_id
+    if Ranking.exists?(:user_id => user_id)
+      @ranking = self.update(user_id)
+    else     
+      @ranking = Ranking.new()
+    end
 
     respond_to do |format|
       if @ranking.save
@@ -39,7 +34,7 @@ class RankingsController < ApplicationController
 
   # PATCH/PUT /rankings/1
   # PATCH/PUT /rankings/1.json
-  def update
+  def update user_id
     respond_to do |format|
       if @ranking.update(ranking_params)
         format.html { redirect_to @ranking, notice: 'Ranking was successfully updated.' }
@@ -69,6 +64,6 @@ class RankingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ranking_params
-      params.require(:ranking).permit(:user, :liked, :userliked, :tagsliked)
+      params.require(:ranking).permit(:user_id, :liked, :userliked, :tagsliked)
     end
 end

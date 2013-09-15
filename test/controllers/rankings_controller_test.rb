@@ -18,7 +18,7 @@ class RankingsControllerTest < ActionController::TestCase
 
   test "should create ranking" do
     assert_difference('Ranking.count') do
-      post :create, ranking: { liked: @ranking.liked, tagsliked: @ranking.tagsliked, user: @ranking.user, userliked: @ranking.userliked }
+      post :create, ranking: { liked: @ranking.liked, tagsliked: @ranking.tagsliked, user_id: @ranking.user_id, userliked: @ranking.userliked }
     end
 
     assert_redirected_to ranking_path(assigns(:ranking))
@@ -35,7 +35,7 @@ class RankingsControllerTest < ActionController::TestCase
   end
 
   test "should update ranking" do
-    patch :update, id: @ranking, ranking: { liked: @ranking.liked, tagsliked: @ranking.tagsliked, user: @ranking.user, userliked: @ranking.userliked }
+    patch :update, id: @ranking, ranking: { liked: @ranking.liked, tagsliked: @ranking.tagsliked, user_id: @ranking.user_id, userliked: @ranking.userliked }
     assert_redirected_to ranking_path(assigns(:ranking))
   end
 

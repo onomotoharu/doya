@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user: 
+  user_id: 
   liked: 1
   userliked: 1
   tagsliked: 1
 
 two:
-  user: 
+  user_id: 
   liked: 1
   userliked: 1
   tagsliked: 1
