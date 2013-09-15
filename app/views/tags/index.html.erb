@@ -15,18 +15,15 @@
   <tbody>
     <% @tags.each do |tag| %>
       <tr>
+        <td><% tag.id %></td>
+        <td></td>
+        <td><%= tag.name %></td>
+        <td id="like<%= tag.id %>"><%= tag.like%> </td>
         <% photo_ids = Tagging.find_all_by_tag_id(tag.id).map{ |p| p.photo_id } %>
         <% photo_ids.each do |id| %>
           <% photo = Photo.find(id) %>  
           <td><%= image_tag photo.image.url(:thumb) %></td>  
         <% end %>
-        <td><% tag.id %></td>
-        <td></td>
-        <td><%= tag.name %></td>
-
-
-        <td id="like<%= tag.id %>"><%= tag.like%> </td>
-        
         <td>
 
         <input type="button" class="like" name="tags,<%= tag.id %>" value="いいね!"/></input>
