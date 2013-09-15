@@ -1,0 +1,33 @@
+<%= form_for(@ranking) do |f| %>
+  <% if @ranking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ranking.errors.count, "error") %> prohibited this ranking from being saved:</h2>
+
+      <ul>
+      <% @ranking.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :liked %><br>
+    <%= f.number_field :liked %>
+  </div>
+  <div class="field">
+    <%= f.label :userliked %><br>
+    <%= f.number_field :userliked %>
+  </div>
+  <div class="field">
+    <%= f.label :tagsliked %><br>
+    <%= f.number_field :tagsliked %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
