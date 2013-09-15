@@ -31,6 +31,7 @@ class PhotosController < ApplicationController
     data = photo_params.merge({'user_id'=>current_user.id})
     data['like'] = 0
     @photo = Photo.new(data)
+    @photo.tag_list = @photo.tagstext
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
@@ -86,6 +87,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:image, :user_id, :like, :tags)
+      params.require(:photo).permit(:image, :user_id, :like, :tagstext)
     end
 end

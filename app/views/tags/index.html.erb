@@ -1,10 +1,11 @@
 <h1>Listing tags</h1>
 
-<table>
+<table border=1>
   <thead>
     <tr>
       <th>Name</th>
       <th>Like</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,7 +23,16 @@
         <td><% tag.id %></td>
         <td></td>
         <td><%= tag.name %></td>
-        <td><%= tag.like %></td>
+
+
+        <td id="like<%= tag.id %>"><%= tag.like%> </td>
+        
+        <td>
+
+        <input type="button" class="like" name="tags,<%= tag.id %>" value="いいね!"/></input>
+
+        </td>
+
         <td><%= link_to 'Show', tag %></td>
         <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
         <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -34,3 +44,14 @@
 <br>
 
 <%= link_to 'New Tag', new_tag_path %>
+
+<script>
+  $("input.like").click(function(){
+  target = $(this).attr("name").split(",");
+  uri = "/"+ target[0] + "/" +  target[1] + "/like";
+  $.post(uri, function(json){
+    $("#like"+target[1]).html(String(json.like))
+  });
+})
+
+</script>

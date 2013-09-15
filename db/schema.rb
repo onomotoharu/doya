@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915065555) do
+ActiveRecord::Schema.define(version: 20130915190940) do
 
   create_table "photos", force: true do |t|
     t.string   "image_file_name"
@@ -22,9 +22,21 @@ ActiveRecord::Schema.define(version: 20130915065555) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "like",               default: 0
+    t.string   "tagstext"
   end
 
   add_index "photos", ["user_id"], name: "index_photos_on_user_id"
+
+  create_table "rankings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "liked",      default: 10
+    t.integer  "userliked",  default: 10
+    t.integer  "tagsliked",  default: 10
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rankings", ["user_id"], name: "index_rankings_on_user_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
