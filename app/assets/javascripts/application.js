@@ -28,4 +28,19 @@ $(document).ready(function(){
 			}
 		}
 	});
+
+	$(".header-home-button").click(function(){
+		// console.log(location.hostname);
+		document.location = location.host;
+	});
+
+	// $(".thumnail").hover(function(){
+	// 	console.log("in");
+	// 	$(".thumnail-option").fadeTo(1000,1);
+
+	// },
+	// function(){
+	// 	console.log("out");
+	// 	$(".thumnail-option").fadeTo(1000,0);
+	// });
 });
