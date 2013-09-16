@@ -109,7 +109,7 @@ li{
   top:200px;
   right:50px;
   background-color: #ddd;
-  visibility:hidden;
+  /*visibility:hidden;*/
 }
 
 .signSession{
@@ -262,4 +262,14 @@ li{
   float: right;
   position: absolute;
   right: 0px;
+}
+
+.table-field{
+  font-size:30px;
+}
+
+.user_nav_signout{
+  position:absolute;
+  top:0px;
+right:0px;
 }
