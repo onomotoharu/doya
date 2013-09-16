@@ -19,9 +19,18 @@
               <a class="header-menu">Home</a>
             </div>
           </li>
+          <li>
+          <div class='user_nav_signout'>
+          <% if user_signed_in? %>
+          Signed in as <%= current_user.username %>. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+          <% else %>
+          <%= link_to "Sign up", new_user_registration_path ,:id=>"signup" %>
+          <%= link_to "Sign in", new_user_session_path ,:id=>"signin" %>
+          <% end %>
+        </div>
+      </li>
         </ul>
-      </header>
-      <div class="main-body">
+
         <div id='user_nav'>
           <% if user_signed_in? %>
           Signed in as <%= current_user.username %>. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
@@ -30,9 +39,13 @@
           <%= link_to "Sign in", new_user_session_path ,:id=>"signin" %>
           <% end %>
         </div>
+
+      </header>
+      <div class="main-body">
         <div>
           <%= yield %>
         </div>
       </div>
+
   </body>
 </html>

@@ -1,20 +1,20 @@
 <h1>Listing rankings</h1>
 
-<table>
+<table cellpadding="10">
   <thead>
-    <tr>
+    <tr class="table-field">
       <th>User</th>
       <th>Liked</th>
       <th>Userliked</th>
       <th>Tagsliked</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @rankings.each do |ranking| %>
+    ranking.each_with_index{
+      |val,index| put index
+    }
       <tr>
         <td><%= ranking.user.username %></td>
         <td><%= ranking.liked %></td>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Ranking', new_ranking_path %>
+<!-- <%= link_to 'New Ranking', new_ranking_path %> -->
