@@ -1,43 +1,37 @@
-<h1>Listing photos</h1>
+<!-- <h1>Listing photos</h1> -->
 
-<table border=0>
-
-  <tbody>
+<%= link_to image_tag("/assets/plus.png",:class=>"add-photo-button icon"),  new_photo_path() %>
+<div class="photos-list">
+  <ul>
     <% @photos.each do |photo| %>
-      <tr>
-        <td><%= image_tag photo.image.url(:medium) %></td>
-        <td>@<%= photo.user.username %></td>
-        <td><%= raw photo.tags.map { |t| link_to t.name, tag_path(t.id) }.join(', ') %></td>
-        <td id="like<%= photo.id%>"><p><%= photo.like%> likes</p></td>
-        
-        <td>
-
-        <%if user_signed_in? %>
-        <input type="button" class="like" name="photos,<%= photo.id %>" value="いいね!"/></input>
-        <% end %>
-
-        </td>
-        <td>
-        <%if user_signed_in? %>
-         <%= link_to 'Show', photo %></td>
-        <% end %>
-        <td>
-        <%if user_signed_in? && current_user.id == photo.user.id %>
-          <%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <% end %>
-        <td> 
-        <%if user_signed_in? && current_user.id == photo.user.id %>
-          <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-        </td>
-      </tr>
+    <li>
+      <div class="thumnail" >
+        <%= link_to image_tag(photo.image.url(:medium),:class=>"thumnail-img"), photo  %>
+        <div class="thumnail-option">
+          <%= photo.user.username %>
+          <%= raw photo.tags.map { |t| link_to t.name, tag_path(t.id) }.join(', ') %>
+          <div id="like<%= photo.id%>">
+            <a><%= photo.like%> likes</a>
+        </div>
+<!--           <%if user_signed_in? %>
+           <%= link_to 'Show', photo %>
+          <% end %> -->
+            <%if user_signed_in? %>
+            <input type="image" class="icon like" name="photos,<%= photo.id %>" src="/assets/thumbs-up.png" >
+            <% end %>
+          <%if user_signed_in? && current_user.id == photo.user.id %>
+            <%= link_to image_tag("/assets/compose.png",:class=>"icon"),  edit_photo_path(photo) %>
+          <% end %>
+          <%if user_signed_in? && current_user.id == photo.user.id %>
+            <!-- <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+            <%= link_to image_tag("/assets/close.png",:class=>"icon"),  edit_photo_path(photo),method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+      </div>
+      </li>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Photo', new_photo_path %>
+  </ul>
+</div>
 
 <script>
   $("input.like").click(function(){
